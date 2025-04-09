@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
-import org.pom.LoginPage;
-import org.pom.RegisterPOM;
 import org.utility.BaseClass;
 import org.utility.Utility;
 
@@ -17,9 +15,7 @@ import io.cucumber.java.en.When;
 
 public class DataDriven extends BaseClass {
 
-	public static LoginPage l;
-
-	public static RegisterPOM r;
+	
 	
 	public static Map<String, String> mp = new HashMap();
 
@@ -27,13 +23,9 @@ public class DataDriven extends BaseClass {
 	@Given("launch browser and Navigate to url {string}")
 	public void launch_browser_and_Navigate_to_url(String string) {
 
-		browserLaunch("Chrome");
-
 		launchURL(string);
 
-		l = new LoginPage();
-
-		r = new RegisterPOM();
+	
 	}
 
 	@Then("Verify {string} is there")

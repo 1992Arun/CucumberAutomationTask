@@ -8,10 +8,6 @@ import java.util.Random;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.pom.CheckOutPage;
-import org.pom.LoginPage;
-import org.pom.ProductsSearch;
-import org.pom.RegisterPOM;
 import org.utility.Utility;
 
 import io.cucumber.java.en.Given;
@@ -20,24 +16,20 @@ import io.cucumber.java.en.When;
 
 public class LogoutStep extends org.utility.BaseClass {
 
-	public static LoginPage l = new LoginPage();
 
-	public static RegisterPOM r = new RegisterPOM();
 
 	public static String email;
 	
-	public static 	CheckOutPage checkout = new CheckOutPage();
-	
-	public static ProductsSearch p = new ProductsSearch ();
 	
 	public static Map<String, String> mp = new HashMap();
 
 	@Given("Launch browser and Navigate to url {string}")
 	public void launch_browser_and_Navigate_to_url(String string) {
 
-		browserLaunch("Chrome");
+	
 
 		launchURL("https://automationexercise.com/");
+		
 		
 	     
 	}
@@ -45,7 +37,7 @@ public class LogoutStep extends org.utility.BaseClass {
 	@Then("Verify {string} is visible")
 	public void verify_is_visible(String string) {
 		
-	
+		
 
 		if (string.equals("home page")) {
 
@@ -175,12 +167,13 @@ public class LogoutStep extends org.utility.BaseClass {
 		
 		}else if (string.equals("Cart page")) {
 		
-			Assert.assertTrue(webDriverWait(5,l.getLandedOnCartPage()).isDisplayed());
+			System.out.println("cart page is visible");
+			
+			Assert.assertTrue(webDriverWait(10, l.getLandedOnCartPage()).isDisplayed());
 			
 		}else if (string.equals("Order Placed!")) {
 		
-
-			Assert.assertTrue(webDriverWait(5,checkout.getOrderPlacedMessage()).isDisplayed());
+			Assert.assertTrue(webDriverWait(10,checkout.getOrderPlacedMessage()).isDisplayed());
 			
 		}
 	
@@ -220,6 +213,8 @@ public class LogoutStep extends org.utility.BaseClass {
 		} 
 		
 		else if (string.equals("Proceed To Checkout")) {
+			
+		
 
 			click(webDriverWait(10, l.proceedToCheckout));
 		} 
@@ -238,6 +233,8 @@ public class LogoutStep extends org.utility.BaseClass {
 		if (string.equals("correct email address and password")) {
 
 			sendKeys(l.getLoginEmail(), Utility.getProperty("email"));
+			
+			
 
 			sendKeys(l.getLoginPassword(), Utility.getProperty("password"));
 
@@ -349,19 +346,24 @@ public class LogoutStep extends org.utility.BaseClass {
 	
 
 
-	@Then("Fill details: First name, Last name, Company, Address, Address{int}, Country, State, City, Zipcode, Mobile Number")
-	public void fill_details_First_name_Last_name_Company_Address_Address_Country_State_City_Zipcode_Mobile_Number(
-			) throws IOException {
+	@Then("Fill details userDetails")
+	public void fill_details_userDetails() throws IOException {
 
 		String[][] readExcel = Utility.readExcel();
 		
 		for(int i=0; i<readExcel.length; i++) {
+			
+			click(r.getMale());
 			
 			selectByText(r.getDobDay(), readExcel[i][4]);
 
 			selectByText(r.getDobMonth(),  readExcel[i][5]);
 
 			selectByText(r.getDobYars(), readExcel[i][6]);
+			
+			sendKeys(r.getPassword(), readExcel[i][2]);
+			
+			Utility.writeProperty("password",  readExcel[i][2]);
 		
 		sendKeys(r.getFirst_name(), readExcel[i][7]);
 
@@ -406,31 +408,13 @@ public class LogoutStep extends org.utility.BaseClass {
 		r.getMobile_number().submit();
 		
 		
+		
+		break;
+		
 		}
 
 	}
 
-	@Then("Fill details: Title, Name, Email, Password, Date of birth")
-	public void fill_details_Title_Name_Email_Password_Date_of_birth() {
-
-		click(r.getMale());
-
-		sleep(2);
-
-		sendKeys(r.getPassword(), "sdjfkljdslk");
-
-		Utility.writeProperty("password", "sdjfkljdslk");
-
-		System.out.println("sdjfkljdslk");
-
-		sleep(2);
-
-		selectByText(r.getDobDay(), "2");
-
-		selectByValue(r.getDobMonth(), "2");
-
-		selectByText(r.getDobYars(), "1992");
-
-	}
+	
 
 }

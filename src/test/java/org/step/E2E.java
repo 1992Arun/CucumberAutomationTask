@@ -6,13 +6,6 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.pom.CheckOutPage;
-import org.pom.ContactUsPOM;
-import org.pom.LoginPage;
-import org.pom.ProductDetails;
-import org.pom.ProductsSearch;
-import org.pom.RegisterPOM;
-import org.pom.TestCasedPagePOM;
 import org.utility.BaseClass;
 
 import io.cucumber.java.en.Then;
@@ -20,19 +13,7 @@ import io.cucumber.java.en.When;
 
 public class E2E extends BaseClass {
 
-	public static ContactUsPOM c = new ContactUsPOM();
-
-	public static LoginPage l = new LoginPage();
-
-	public static TestCasedPagePOM t = new TestCasedPagePOM();
-
-	public static ProductsSearch p = new ProductsSearch();
-
-	public static RegisterPOM r = new RegisterPOM();
-
-	public static CheckOutPage checkout = new CheckOutPage();
-
-	public static ProductDetails produc;
+	
 
 	public static List<Map<String, String>> asMaps;
 
@@ -47,7 +28,7 @@ public class E2E extends BaseClass {
 	@When("Add products to cart")
 	public void add_products_to_cart() {
 
-		l = new LoginPage();
+	
 
 		numberOfProducts = 6;
 

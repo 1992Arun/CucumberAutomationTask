@@ -4,7 +4,7 @@ Feature: Contact us form
 
 Scenario Outline: Submit query
 
-Given Launch browser and navitage to url 'http://automationexercise.com'
+Given Launch browser and navigate to 'http://automationexercise.com'
 
 When Verify that home page is visible successfully
 

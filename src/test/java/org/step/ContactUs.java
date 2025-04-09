@@ -4,12 +4,6 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.pom.CheckOutPage;
-import org.pom.ContactUsPOM;
-import org.pom.LoginPage;
-import org.pom.ProductDetails;
-import org.pom.ProductsSearch;
-import org.pom.TestCasedPagePOM;
 import org.utility.BaseClass;
 
 import io.cucumber.java.en.Given;
@@ -18,41 +12,21 @@ import io.cucumber.java.en.When;
 
 public class ContactUs extends BaseClass {
 	
-	public static CheckOutPage checkout ;
-	
+
 	public static int productCount;
 
-	public static ContactUsPOM c;
 
-	public static LoginPage l ;
-
-	public static TestCasedPagePOM t;
-
-	public static ProductsSearch p;
 
 	public static String productName;
 
-	public static ProductDetails product;
-	
 
+	@Given("Launch browser and navigate to {string}")
+	public void launch_browser_and_navigate_to(String string) {
 
-
-	@Given("Launch browser and Navigate to {string}")
-	public void launch_browser_and_Navigate_to(String string) {
-
-		browserLaunch("Chrome");
 
 		launchURL(string);
 
-		l = new LoginPage();
-
-		c = new ContactUsPOM();
-
-		t = new TestCasedPagePOM();
-
-		p = new ProductsSearch();
-
-		product = new ProductDetails();
+		
 	}
 
 	@When("Verify that home page is visible successfully")
@@ -76,7 +50,8 @@ public class ContactUs extends BaseClass {
 	@When("Click {string} button")
 	public void click_button(String string) {
 		
-			checkout = new CheckOutPage();
+		
+		 
 
 		if(string.equals("Contact Us")) {
 
@@ -195,8 +170,6 @@ public class ContactUs extends BaseClass {
 	public void verify_success_message_is_visible(String string) {
 		
 
-		checkout = new CheckOutPage();
-
 
 		if(string.equals("Success! Your details have been submitted successfully.")) {
 
@@ -206,10 +179,10 @@ public class ContactUs extends BaseClass {
 
 			Assert.assertTrue(( getText(l.getSubscriptionSuccessText()).equals(string)));
 		}
-		
-		
+			
 
 	}
+	
 
 	@Then("Click {string} button and verify that landed to home page successfully")
 	public void click_button_and_verify_that_landed_to_home_page_successfully(String string) {
@@ -236,6 +209,7 @@ public class ContactUs extends BaseClass {
 
 		Assert.assertTrue(p.getAllProductsText().isDisplayed());
 	}
+	
 
 	@When("Enter product {string} in search box and click search button")
 	public void enter_product_in_search_box_and_click_search_button(String string) {
@@ -246,6 +220,7 @@ public class ContactUs extends BaseClass {
 
 		click(p.getProductSearchButton());
 	}
+	
 
 	@When("Verify all the products related to search are visible")
 	public void verify_all_the_products_related_to_search_are_visible() {
@@ -303,6 +278,7 @@ public class ContactUs extends BaseClass {
 
 		Assert.assertTrue(product.getProductInformation().isDisplayed());
 	}
+	
 
 	@When("Increase quantity to {int}")
 	public void increase_quantity_to(int int1) {
@@ -310,7 +286,6 @@ public class ContactUs extends BaseClass {
 		productCount = int1;
 
 		ActionSendKeys(product.getProductQuantity(), String.valueOf(int1));
-
 
 	}
 

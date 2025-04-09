@@ -4,7 +4,7 @@ Feature: Verify Test Cases Page
 
 Background:
 
-Given Launch browser and Navigate to 'http://automationexercise.com'
+Given Launch browser and Navigate to url 'http://automationexercise.com'
 
 And Verify that home page is visible successfully
 
@@ -17,7 +17,7 @@ Then  Verify user is navigated to test cases page successfully
 
 
 
-@productsSearch
+@productsSearch 
 Scenario: Verify product search functionality
 
 And Click 'Products' button
@@ -31,7 +31,7 @@ And Verify 'SEARCHED PRODUCTS' is visible
 And Verify all the products related to search are visible
 
 
-@subscription
+@subscription @sanity
 Scenario: Verify Subscription functionality
 
 When Scroll down to footer
@@ -43,7 +43,7 @@ When  Enter email address "arun@mial.com" in input and click arrow button
 Then Verify success message 'You have been successfully subscribed!' is visible
 
 
-@subscriptionAtCart
+@subscriptionAtCart @sanity
 Scenario: Verify Subscription functionality
 
 When Click 'Cart' button

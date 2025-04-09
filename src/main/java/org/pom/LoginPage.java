@@ -29,7 +29,7 @@ public class LoginPage extends org.utility.BaseClass {
 	@FindBy(xpath="//ul[@class='nav navbar-nav']//following::a[contains(@style,'orange')]")
 	public WebElement LandedOnHomePage;
 
-	@FindBy(xpath="//ul[@class='nav navbar-nav']//following::a[contains(@style,'orange')]")
+	@FindBy(xpath="//ul[@class='nav navbar-nav']//following::a[contains(@href,'cart') and @style='color: orange;']")
 	public WebElement LandedOnCartPage;	
 	
 	@FindBy(xpath="//ul[@class='nav navbar-nav']//following::a[contains(text(),'Test Cases')]")

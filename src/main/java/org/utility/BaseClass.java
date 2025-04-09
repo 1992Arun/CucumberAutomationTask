@@ -24,14 +24,37 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.pom.CheckOutPage;
+import org.pom.ContactUsPOM;
+import org.pom.LoginPage;
+import org.pom.ProductDetails;
+import org.pom.ProductsSearch;
+import org.pom.RegisterPOM;
+import org.pom.TestCasedPagePOM;
 
 public class BaseClass {
 
 	public static WebDriver driver;
+	
+	public static LoginPage l ;
+
+	public static RegisterPOM r;
+
+	public static String email;
+	
+	public static CheckOutPage checkout;
+	
+	public static ProductsSearch p;
+	
+	public static TestCasedPagePOM t;
+	
+	public static ProductDetails product;
+	
+	public static ContactUsPOM c;
 
 
 
-	public static void browserLaunch(String browser) {
+	public static WebDriver browserLaunch(String browser) {
 
 		//		if(driver==null) {
 
@@ -55,6 +78,7 @@ public class BaseClass {
 
 		}
 
+		return driver;
 	}
 
 	//	}
