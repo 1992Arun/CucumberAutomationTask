@@ -2,11 +2,13 @@ package org.step;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.utility.Utility;
 
@@ -16,28 +18,19 @@ import io.cucumber.java.en.When;
 
 public class LogoutStep extends org.utility.BaseClass {
 
-
-
 	public static String email;
-	
-	
+
 	public static Map<String, String> mp = new HashMap();
 
 	@Given("Launch browser and Navigate to url {string}")
 	public void launch_browser_and_Navigate_to_url(String string) {
 
-	
-
 		launchURL("https://automationexercise.com/");
-		
-		
-	     
+
 	}
 
 	@Then("Verify {string} is visible")
 	public void verify_is_visible(String string) {
-		
-		
 
 		if (string.equals("home page")) {
 
@@ -65,13 +58,13 @@ public class LogoutStep extends org.utility.BaseClass {
 
 					Assert.assertTrue(r.getEnterAccountInformationText().isDisplayed());
 
-//					if (webDriverWait(2, l.getEmailAlreadyExist()).isDisplayed()) {
-//
-//						System.out.println("Valid email is entered");
-//
-						break;
+					// if (webDriverWait(2, l.getEmailAlreadyExist()).isDisplayed()) {
+					//
+					// System.out.println("Valid email is entered");
+					//
+					break;
 
-					//}
+					// }
 
 				} catch (Exception e) {
 
@@ -104,79 +97,170 @@ public class LogoutStep extends org.utility.BaseClass {
 			}
 
 		} else if (string.equals("invalid Credentials")) {
-			
-				int i = 0;
 
-			
+			int i = 0;
 
-					try {
+			try {
 
-						   while (l.getInvalidCredentialsText().isDisplayed()) {
-							   
-						   
-							   Random r = new Random();
+				while (l.getInvalidCredentialsText().isDisplayed()) {
 
-								email = "Arq" + r.nextInt(100) + "u@fas.com";
+					Random r = new Random();
 
-								Actions a = new Actions(driver);
+					email = "Arq" + r.nextInt(100) + "u@fas.com";
 
-								a.click(l.getLoginEmail()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
-										.keyUp(Keys.CONTROL).perform();
+					Actions a = new Actions(driver);
 
-								sendKeys(l.getLoginEmail(), email);
-								
-								System.out.println(email);
+					a.click(l.getLoginEmail()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
+							.keyUp(Keys.CONTROL).perform();
 
-								a.click(l.getLoginPassword()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
-								.keyUp(Keys.CONTROL).perform();
-								
-								sendKeys(l.getLoginPassword(), Utility.getProperty("password"));
-								
-								System.out.println(Utility.getProperty("password"));
+					sendKeys(l.getLoginEmail(), email);
 
-								click_on_button("login");
-							   
-						   }
+					System.out.println(email);
 
-		
+					a.click(l.getLoginPassword()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
+							.keyUp(Keys.CONTROL).perform();
 
-					} catch (Exception e) {
+					sendKeys(l.getLoginPassword(), Utility.getProperty("password"));
 
-						
-						
+					System.out.println(Utility.getProperty("password"));
 
-					}
+					click_on_button("login");
 
-//					i++;
-//
-//					if (i == 4) {
-//
-//						System.out.println(" 4 attempts failed");
-//					}
-				
-				
-				
-		
-			
+				}
+
+			} catch (Exception e) {
+
+			}
+
+			// i++;
+			//
+			// if (i == 4) {
+			//
+			// System.out.println(" 4 attempts failed");
+			// }
+
 		} else if (string.equals("SEARCHED PRODUCTS")) {
 
-			
 			Assert.assertTrue(p.getSearchedProductsText().isDisplayed());
-			
+
 			System.out.println("seaealskdj");
-		
-		}else if (string.equals("Cart page")) {
-		
+
+		} else if (string.equals("Cart page")) {
+
 			System.out.println("cart page is visible");
-			
+
 			Assert.assertTrue(webDriverWait(10, l.getLandedOnCartPage()).isDisplayed());
-			
-		}else if (string.equals("Order Placed!")) {
-		
-			Assert.assertTrue(webDriverWait(10,checkout.getOrderPlacedMessage()).isDisplayed());
-			
+
+		} else if (string.equals("Order Placed!")) {
+
+			Assert.assertTrue(webDriverWait(10, checkout.getOrderPlacedMessage()).isDisplayed());
+
+		} else if (string.equals("Top")) {
+
+			List<WebElement> productname = l.getProductname();
+
+			for (WebElement x : productname) {
+
+				// System.out.println(getText(x));
+				//
+				// System.out.println(string);
+
+				Assert.assertTrue(getText(x).contains(string));
+
+			}
+
+		} else if (string.equals("Dress")) {
+
+			List<WebElement> productname = l.getProductname();
+
+			for (WebElement x : productname) {
+
+				// System.out.println(getText(x));
+				//
+				// System.out.println(string);
+
+				Assert.assertTrue(getText(x).contains(string));
+
+			}
+
+		} else if (string.equals("Saree")) {
+
+			List<WebElement> productname = l.getProductname();
+
+			for (WebElement x : productname) {
+
+				Assert.assertTrue(getText(x).contains(string));
+
+			}
+
+		} else if (string.equals("Tshirts")) {
+
+			List<WebElement> productname = l.getProductname();
+
+			for (WebElement x : productname) {
+
+				String regex = "(?i)\\bT[ -]?shirt[s]?\\b";
+
+				Assert.assertTrue(string.matches(".*" + regex + ".*"));
+
+			}
+
 		}
-	
+
+		else if (string.equals("Jeans")) {
+
+			List<WebElement> productname = l.getProductname();
+
+			for (WebElement x : productname) {
+
+				System.out.println(getText(x));
+
+				Assert.assertTrue(getText(x).contains(string));
+
+			}
+
+		} else if (string.equals("Women - Tops Products")) {
+
+			System.out.println(getText(p.getWomenTopsProductsText()).replace(" ", ""));
+
+			System.out.println(string.replace(" ", ""));
+
+			Assert.assertTrue(
+					getText(p.getWomenTopsProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Women - Dress Products")) {
+
+			Assert.assertTrue(
+					getText(p.getWomenDressProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Women - Saree Products")) {
+
+			Assert.assertTrue(
+					getText(p.getWomenTopsSareeText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Men - Tshirts Products")) {
+
+			Assert.assertTrue(
+					getText(p.getMenTShirtProductText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Men - Jeans Products")) {
+
+			System.out.println(getText(p.getMenJeansProductText()));
+
+			System.out.println(string);
+
+			Assert.assertTrue(
+					getText(p.getMenJeansProductText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
 
 	}
 
@@ -210,20 +294,12 @@ public class LogoutStep extends org.utility.BaseClass {
 		} else if (string.equals("Home")) {
 
 			click(webDriverWait(10, l.getHomeButton()));
-		} 
-		
+		}
+
 		else if (string.equals("Proceed To Checkout")) {
-			
-		
 
 			click(webDriverWait(10, l.proceedToCheckout));
-		} 
-
-		 
-		
-		
-		
-		
+		}
 
 	}
 
@@ -233,8 +309,6 @@ public class LogoutStep extends org.utility.BaseClass {
 		if (string.equals("correct email address and password")) {
 
 			sendKeys(l.getLoginEmail(), Utility.getProperty("email"));
-			
-			
 
 			sendKeys(l.getLoginPassword(), Utility.getProperty("password"));
 
@@ -322,8 +396,8 @@ public class LogoutStep extends org.utility.BaseClass {
 					System.out.println(" 4 attempts failed");
 				}
 			}
-			
-		} 
+
+		}
 
 	}
 
@@ -343,78 +417,72 @@ public class LogoutStep extends org.utility.BaseClass {
 		}
 
 	}
-	
-
 
 	@Then("Fill details userDetails")
 	public void fill_details_userDetails() throws IOException {
 
 		String[][] readExcel = Utility.readExcel();
-		
-		for(int i=0; i<readExcel.length; i++) {
-			
+
+		for (int i = 0; i < readExcel.length; i++) {
+
 			click(r.getMale());
-			
+
 			selectByText(r.getDobDay(), readExcel[i][4]);
 
-			selectByText(r.getDobMonth(),  readExcel[i][5]);
+			selectByText(r.getDobMonth(), readExcel[i][5]);
 
 			selectByText(r.getDobYars(), readExcel[i][6]);
-			
+
 			sendKeys(r.getPassword(), readExcel[i][2]);
-			
-			Utility.writeProperty("password",  readExcel[i][2]);
-		
-		sendKeys(r.getFirst_name(), readExcel[i][7]);
 
-		mp.put("first", getAttribute(r.getFirst_name(), readExcel[i][7]));
+			Utility.writeProperty("password", readExcel[i][2]);
 
-		sendKeys(r.getLast_name(), readExcel[i][8]);
+			sendKeys(r.getFirst_name(), readExcel[i][7]);
 
-		mp.put("last", getAttribute(r.getLast_name(), readExcel[i][8]));
+			mp.put("first", getAttribute(r.getFirst_name(), readExcel[i][7]));
 
-		sendKeys(r.getCompany(), readExcel[i][9]);
+			sendKeys(r.getLast_name(), readExcel[i][8]);
 
-		mp.put("Company", getAttribute(r.getCompany(), readExcel[i][9]));
+			mp.put("last", getAttribute(r.getLast_name(), readExcel[i][8]));
 
-		sendKeys(r.getAddress1(), readExcel[i][10]);
+			sendKeys(r.getCompany(), readExcel[i][9]);
 
-		mp.put("Address1", getAttribute(r.getAddress1(), readExcel[i][10]));
+			mp.put("Company", getAttribute(r.getCompany(), readExcel[i][9]));
 
-		sendKeys(r.getAddress2(), readExcel[i][11]);
+			sendKeys(r.getAddress1(), readExcel[i][10]);
 
-		mp.put("Address2", getAttribute(r.getAddress2(), readExcel[i][11]));
+			mp.put("Address1", getAttribute(r.getAddress1(), readExcel[i][10]));
 
-		selectByText(r.getCountry(), readExcel[i][12]);
+			sendKeys(r.getAddress2(), readExcel[i][11]);
 
-		mp.put("Country", getAttribute(r.getCountry(), readExcel[i][12]));
+			mp.put("Address2", getAttribute(r.getAddress2(), readExcel[i][11]));
 
-		sendKeys(r.getState(), readExcel[i][14]);
+			selectByText(r.getCountry(), readExcel[i][12]);
 
-		mp.put("State", getAttribute(r.getState(), readExcel[i][14]));
+			mp.put("Country", getAttribute(r.getCountry(), readExcel[i][12]));
 
-		sendKeys(r.getCity(), readExcel[i][15]);
+			sendKeys(r.getState(), readExcel[i][14]);
 
-		mp.put("City", getAttribute(r.getCity(), readExcel[i][15]));
+			mp.put("State", getAttribute(r.getState(), readExcel[i][14]));
 
-		sendKeys(r.getZipcode(), readExcel[i][13]);
+			sendKeys(r.getCity(), readExcel[i][15]);
 
-		mp.put("Zip", getAttribute(r.getZipcode(), readExcel[i][13]));
+			mp.put("City", getAttribute(r.getCity(), readExcel[i][15]));
 
-		sendKeys(r.getMobile_number(), readExcel[i][16]);
+			sendKeys(r.getZipcode(), readExcel[i][13]);
 
-		mp.put("MobileNumber", getAttribute(r.getMobile_number(), readExcel[i][16]));
+			mp.put("Zip", getAttribute(r.getZipcode(), readExcel[i][13]));
 
-		r.getMobile_number().submit();
-		
-		
-		
-		break;
-		
+			sendKeys(r.getMobile_number(), readExcel[i][16]);
+
+			mp.put("MobileNumber", getAttribute(r.getMobile_number(), readExcel[i][16]));
+
+			r.getMobile_number().submit();
+
+			break;
+
 		}
 
 	}
-
-	
 
 }

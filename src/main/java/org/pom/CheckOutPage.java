@@ -80,7 +80,25 @@ public class CheckOutPage extends BaseClass {
 	@FindBy(xpath="//div[@class='col-sm-9 col-sm-offset-1']//following::a[normalize-space()='Continue']")
 	private WebElement continueButton;
 	
+	@FindBy(xpath="(//td[@class='cart_delete']//following::a[@class='cart_quantity_delete'])[position()=1]")
+	private WebElement removeFromCart;
 	
+	@FindBy(xpath="//span[@id='empty_cart']//following::b")
+	private WebElement cartIsEmpty;
+	
+	
+
+	public WebElement getCartIsEmpty() {
+		return cartIsEmpty;
+	}
+
+	public WebElement getOrderPlacedText() {
+		return orderPlacedText;
+	}
+
+	public WebElement getRemoveFromCart() {
+		return removeFromCart;
+	}
 
 	public WebElement getOrderPlacedMessage() {
 		return orderPlacedMessage;

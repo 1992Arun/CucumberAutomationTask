@@ -76,22 +76,6 @@ Then Verify "ACCOUNT DELETED!" is visible
 And Click on 'Continue' button
 
 
-#
-#@delete
-#Scenario: Delete existing accounts
-#
-#Then Verify 'home page' is visible
-#
-#When Click on 'Signup / Login' button
-#
-#Then Verify 'Login to your account' is visible
-#
-#When Enter "any email address and password"
-#
-#And Click on 'login' button
-#
-#Then Verify "invalid Credentials" is visible
-#
-#And Click on 'Delete Account' button
+
 
 

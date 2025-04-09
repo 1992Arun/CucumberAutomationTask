@@ -212,5 +212,31 @@ public class E2E extends BaseClass {
 
 		
 	}
+	
+	
+	@When("Click X button and Verify that product is removed from the cart")
+	public void click_X_button_and_Verify_that_product_is_removed_from_the_cart() {
+		
+		
+		for (int i = 1; i <= numberOfProducts; i++) {
+			   
+			 click(webDriverWait(10, checkout.getRemoveFromCart()));
+			 
+			 driver.navigate().refresh();
+				
+				}
+		
+	}
+
+	@When("Verify that product is removed from the cart")
+	public void verify_that_product_is_removed_from_the_cart() {
+		
+		
+	   Assert.assertTrue(checkout.getCartIsEmpty().isDisplayed());
+		
+		
+	}
+
+
 
 }

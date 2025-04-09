@@ -124,3 +124,129 @@ Then Verify "ACCOUNT DELETED!" is visible
 
 And Click on 'Continue' button
 
+
+
+@remove
+Scenario: Remove Products From Cart
+
+When Add products to cart
+
+And Click 'Cart' button
+
+Then Verify 'Cart page' is visible
+
+When Click X button and Verify that product is removed from the cart
+
+
+@Catogoty @Women @Top
+Scenario: Verify Women Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Women' button
+
+And Click 'WomenTops' button
+
+Then Verify 'Women - Tops Products' is visible
+
+Then Verify 'Top' is visible
+
+
+
+@Catogoty @Women @WomenDress
+Scenario: Verify Women Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Women' button
+
+And Click 'WomenDress' button
+
+Then Verify 'Women - Dress Products' is visible
+
+Then Verify 'Dress' is visible
+
+
+@Catogoty @Women @Saree
+Scenario: Verify Women Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Women' button
+
+And Click 'WomenSaree' button
+
+Then Verify 'Women - Saree Products' is visible
+
+Then Verify 'Saree' is visible
+
+
+
+@Catogoty @Men @Tshirts
+Scenario: Verify Men Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Men' button
+
+And Click 'MenTshirts' button
+
+Then Verify 'Men - Tshirts Products' is visible
+
+Then Verify 'Tshirts' is visible
+
+
+@Catogoty @Men @Jeans
+Scenario: Verify Men Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Men' button
+
+And Click 'MenJeans' button
+
+And Click 'Men - Jeans Products' button
+
+Then Verify 'Jeans' is visible
+
+
+
+@Catogoty @Kids @KidsDress
+Scenario: Verify Kids Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Kids' button
+
+And Click 'KidsDress' button
+
+Then Verify 'Kids - Dress Products' is visible
+
+
+
+@Catogoty @Kids @Shirts
+Scenario: Verify Kids Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Kids' button
+
+And Click 'KidsShirts' button
+
+Then Verify 'Kids - Tops & Shirts Products' is visible
+
+
