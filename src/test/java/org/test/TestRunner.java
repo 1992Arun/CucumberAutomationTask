@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources", glue="org.step", monochrome =true, tags="@Catogoty", dryRun=false,  plugin= {"pretty","json:\\src\\test\\resources\\Report\\Report.json"})
+@CucumberOptions(features="src/test/resources", glue="org.step", monochrome =true,  dryRun=false,  plugin= {"pretty","json:\\src\\test\\resources\\Report\\Report.json"})
 
 public class TestRunner {
 	 

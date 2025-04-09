@@ -52,7 +52,7 @@ import net.masterthought.cucumber.ReportBuilder;
 		 public static void jvmReport(String json) {
 			 
 			  
-			 File f = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\Reports\\jvmRepor.html");
+			 File f = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\Reports\\AutomationExercise.html");
 			 
 			 Configuration conf = new Configuration(f,"JvmReport");
 			 
