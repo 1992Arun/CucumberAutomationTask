@@ -29,9 +29,19 @@ public class ProductsSearch extends BaseClass {
 	
 	@FindBy(xpath="//div[@class='col-sm-9 padding-right']//child::h2[text()='Searched Products']")
 	private WebElement searchedProductsText;
+
+	
 	
 	@FindBys({@FindBy( xpath="//div[@class='productinfo text-center']//p" )})
 	private List<WebElement> listofProducts;
+	
+	
+	@FindBys({@FindBy( xpath="//tr[contains(@id,'product')]//following::td[@class='cart_description']//a" )})
+	private List<WebElement> ProductsNameInCart;
+	
+	@FindBys({@FindBy( xpath="//tr[contains(@id,'product')]//following::td[@class='cart_price']" )})
+	private List<WebElement> ProductsPriceInCart;
+	
 	
 	@FindBy(xpath="//div[@class='panel-group category-products']//following::a[normalize-space()='Women']")
 	private WebElement categoryWomen;
@@ -90,7 +100,127 @@ public class ProductsSearch extends BaseClass {
 	private WebElement KidsDressProducts;
 	
 	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Polo']")
+	private WebElement categoryPOLO;
 	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='H&M']")
+	private WebElement categoryH_M;
+	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Madame']")
+	private WebElement categoryMadame;
+	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Mast & Harbour']")
+	private WebElement categoryMastandHarbour;
+	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Babyhug']")
+	private WebElement categoryBabyhug;
+
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Allen Solly Junior']")
+	private WebElement categoryAllenSollyJunior;
+	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Kookie Kids']")
+	private WebElement categoryKookieKids;
+	
+	@FindBy(xpath="//ul[@class='nav nav-pills nav-stacked']//following::a[text()='Biba']")
+	private WebElement categoryBiba;
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Polo Products']")
+	private WebElement categoryPoloProductsText;
+	
+
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - H&M Products']")
+	private WebElement categoryHMProductsText;
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Madame Products']")
+	private WebElement categoryMadameProductsText;
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Mast & Harbour Products']")
+	private WebElement categoryMastAndHarbourProductsText;
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Babyhug Products']")
+	private WebElement categoryBacyHugProductsText;
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Allen Solly Junior Products']")
+	private WebElement categoryAllenSollyProductsText;
+	
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Kookie Kids Products']")
+	private WebElement categoryKookieKidsProductsText;
+	
+	
+	@FindBy(xpath="//div[@class='features_items']//following::h2[text()='Brand - Biba Products']")
+	private WebElement categoryBibaProductsText;
+	
+	
+	
+	public WebElement getCategoryBacyHugProductsText() {
+		return categoryBacyHugProductsText;
+	}
+
+	public WebElement getCategoryPoloProductsText() {
+		return categoryPoloProductsText;
+	}
+
+	public WebElement getCategoryHMProductsText() {
+		return categoryHMProductsText;
+	}
+
+	public WebElement getCategoryMadameProductsText() {
+		return categoryMadameProductsText;
+	}
+
+	public WebElement getCategoryMastAndHarbourProductsText() {
+		return categoryMastAndHarbourProductsText;
+	}
+
+	public WebElement getCategoryAllenSollyProductsText() {
+		return categoryAllenSollyProductsText;
+	}
+
+	public WebElement getCategoryKookieKidsProductsText() {
+		return categoryKookieKidsProductsText;
+	}
+
+	public WebElement getCategoryBibaProductsText() {
+		return categoryBibaProductsText;
+	}
+
+	public WebElement getCategoryPOLO() {
+		return categoryPOLO;
+	}
+
+	public WebElement getCategoryH_M() {
+		return categoryH_M;
+	}
+
+	public WebElement getCategoryMadame() {
+		return categoryMadame;
+	}
+
+	public List<WebElement> getProductsNameInCart() {
+		return ProductsNameInCart;
+	}
+
+	public WebElement getCategoryMastandHarbour() {
+		return categoryMastandHarbour;
+	}
+
+	public WebElement getCategoryBabyhug() {
+		return categoryBabyhug;
+	}
+
+	public WebElement getCategoryAllenSollyJunior() {
+		return categoryAllenSollyJunior;
+	}
+
+	public WebElement getCategoryKookieKids() {
+		return categoryKookieKids;
+	}
+
+	public WebElement getCategoryBiba() {
+		return categoryBiba;
+	}
+
 	public WebElement getKidsTopsShirtsProducts() {
 		return KidsTopsShirtsProducts;
 	}
@@ -177,6 +307,10 @@ public class ProductsSearch extends BaseClass {
 
 	public WebElement getProductSearchBox() {
 		return productSearchBox;
+	}
+
+	public List<WebElement> getProductsPriceInCart() {
+		return ProductsPriceInCart;
 	}
 	
 	

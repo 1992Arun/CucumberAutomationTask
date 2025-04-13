@@ -19,6 +19,13 @@ public class LoginPage extends org.utility.BaseClass {
 
 	@FindBy(xpath="//div[@class='signup-form']//child::h2[text()='New User Signup!']")
 	public WebElement signupToAccountisVisible;
+	
+	
+	@FindBys({@FindBy(xpath="//div[@id='recommended-item-carousel']//following::div[@class='item active']//following::i[@class='fa fa-shopping-cart'] ")})
+	public List<WebElement> recommendedItemAddToCart;
+	
+	@FindBys({@FindBy(xpath="//div[@class='item active']//child::div[ @class ='col-sm-4']//p")})
+	public List<WebElement> recommendedItemName;
 
 	@FindBy(xpath="//div[@class='form-row']//following::div[@class='alert-success alert']")
 	public WebElement subscriptionSuccessText;
@@ -58,10 +65,6 @@ public class LoginPage extends org.utility.BaseClass {
 
 	@FindBy(xpath="//form[@method='POST']//child::input[@data-qa='login-password']")
 	public WebElement loginPassword;
-
-
-
-
 
 	@FindBy(xpath="//form[@method='POST']//child::button[@data-qa='login-button']")
 	public WebElement loginButton;
@@ -130,6 +133,59 @@ public class LoginPage extends org.utility.BaseClass {
 	@FindBy(css="div[@id='hd-control-bar']>button[id='hd-close-button']")
 	public WebElement addCloseButton;
 	
+	@FindBy(xpath="//a[@id='scrollUp']//child::i[@class='fa fa-angle-up']")
+	public WebElement bottomUpArrowButton;
+
+	
+	@FindBy(xpath="//div[@class='item active']//following::h2[contains(text(),'Full-Fledged')]")
+	public WebElement heroImageText;
+	
+	@FindBy(xpath="//a[@class='right recommended-item-control']//following::i[@class='fa fa-angle-right']")
+	public WebElement recommendedProductForwardButton;
+	
+	@FindBy(xpath="//div[@class='recommended_items']//following::h2[text()='recommended items']")
+	public WebElement recommendedItems;
+	
+	@FindBys({@FindBy(xpath="//button[@type]")})
+	public List<WebElement> loginPageButton;
+	
+
+	public WebElement getRecommendedItems() {
+		return recommendedItems;
+	}
+
+
+	public WebElement getRecommendedProductForwardButton() {
+		return recommendedProductForwardButton;
+	}
+
+
+	public List<WebElement> getLoginPageButton() {
+		return loginPageButton;
+	}
+
+
+	
+	public List<WebElement> getRecommendedItemAddToCart() {
+		return recommendedItemAddToCart;
+	}
+
+
+	public WebElement getHeroImageText() {
+		return heroImageText;
+	}
+
+
+	public WebElement getBottomUpArrowButton() {
+		return bottomUpArrowButton;
+	}
+
+
+	public List<WebElement> getRecommendedItemName() {
+		return recommendedItemName;
+	}
+
+
 	public static WebElement addCloseButton() {
 		
 		WebElement parentShadowRoot2 = getParentShadowRoot();
@@ -215,6 +271,9 @@ public class LoginPage extends org.utility.BaseClass {
 
 	@FindBy(xpath="//div[@class='modal-content']//following::a[normalize-space()='Register / Login']")
 	public WebElement CartregisterLogin;
+	
+	
+	
 
 
 	public List<WebElement> getProductname() {

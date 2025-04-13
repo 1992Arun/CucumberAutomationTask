@@ -77,7 +77,7 @@ public class LogoutStep extends org.utility.BaseClass {
 					sleep(2);
 
 					a.click(l.getEnterSignUpEmail()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
-							.keyUp(Keys.CONTROL).perform();
+					.keyUp(Keys.CONTROL).perform();
 
 					sendKeys(l.getEnterSignUpEmail(), email);
 
@@ -111,14 +111,14 @@ public class LogoutStep extends org.utility.BaseClass {
 					Actions a = new Actions(driver);
 
 					a.click(l.getLoginEmail()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
-							.keyUp(Keys.CONTROL).perform();
+					.keyUp(Keys.CONTROL).perform();
 
 					sendKeys(l.getLoginEmail(), email);
 
 					System.out.println(email);
 
 					a.click(l.getLoginPassword()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
-							.keyUp(Keys.CONTROL).perform();
+					.keyUp(Keys.CONTROL).perform();
 
 					sendKeys(l.getLoginPassword(), Utility.getProperty("password"));
 
@@ -260,7 +260,90 @@ public class LogoutStep extends org.utility.BaseClass {
 			Assert.assertTrue(
 					getText(p.getMenJeansProductText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
 
+		} 
+
+		else if (string.equals("Brand - Polo Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryPoloProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		} 
+
+		else if (string.equals("Brand - H&M Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryHMProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
 		}
+
+		else if (string.equals("Brand - Madame Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryMadameProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Brand - Mast & Harbour Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryMastAndHarbourProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Brand - Babyhug Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryBacyHugProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Brand - Allen Solly Junior Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryAllenSollyProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Brand - Kookie Kids Products")) {
+
+			Assert.assertTrue(
+					getText(p.getCategoryKookieKidsProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		}
+
+		else if (string.equals("Brand - Biba Products")) {
+
+			Assert.assertTrue(
+
+					getText(p.getCategoryBibaProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		} 
+
+		else if (string.equals("Brand - Biba Products")) {
+
+			Assert.assertTrue(
+
+					getText(p.getCategoryBibaProductsText()).replace(" ", "").equalsIgnoreCase(string.replace(" ", "")));
+
+		} 
+
+		else if (string.equals("Subscription")) {
+
+			Assert.assertTrue(
+
+					l.getSubscriptionText().isDisplayed());
+
+		} 
+		
+		else if (string.equals("RECOMMENDED ITEMS")) {
+
+			Assert.assertTrue(
+
+					l.getRecommendedItems().isDisplayed());
+
+		}
+
+
 
 	}
 
@@ -302,6 +385,7 @@ public class LogoutStep extends org.utility.BaseClass {
 		}
 
 	}
+	
 
 	@Then("Enter {string}")
 	public void enter(String string) {
@@ -379,7 +463,7 @@ public class LogoutStep extends org.utility.BaseClass {
 					Actions a = new Actions(driver);
 
 					a.click(l.getLoginEmail()).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.BACK_SPACE)
-							.keyUp(Keys.CONTROL).perform();
+					.keyUp(Keys.CONTROL).perform();
 
 					sendKeys(l.getLoginEmail(), email);
 
@@ -397,7 +481,28 @@ public class LogoutStep extends org.utility.BaseClass {
 				}
 			}
 
+		} else if (string.equalsIgnoreCase("Name")) {
+
+			sendKeys(product.getReviewName(), "Arun");
+
 		}
+
+		else if (string.equalsIgnoreCase("emailAddress")) {
+
+			sendKeys(product.getReviewEmail(), "arun@milc.om");
+
+		}
+		
+		else if (string.equalsIgnoreCase("review")) {
+
+			sendKeys(product.getReviewText(), "product quality is not good");
+
+		} 
+
+
+		
+		
+
 
 	}
 
@@ -416,7 +521,7 @@ public class LogoutStep extends org.utility.BaseClass {
 
 		}
 
-	}
+	} 
 
 	@Then("Fill details userDetails")
 	public void fill_details_userDetails() throws IOException {
@@ -484,5 +589,8 @@ public class LogoutStep extends org.utility.BaseClass {
 		}
 
 	}
+	
+	
+	
 
 }

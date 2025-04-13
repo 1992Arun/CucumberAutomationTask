@@ -1,5 +1,7 @@
 package org.step;
 
+import java.util.LinkedList;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.pom.CheckOutPage;
@@ -35,15 +37,14 @@ public class HooksClass extends BaseClass {
 		product = new ProductDetails();
 
 		c = new ContactUsPOM();
+		
+		recit = new LinkedList();
 
 	}
 
 	@After
 	public void tearDown(Scenario sc) {
 
-		
-		
-		
 		if(sc.isFailed()) {
 			
 			TakesScreenshot tk = (TakesScreenshot)driver;

@@ -40,6 +40,9 @@ public class DataDriven extends BaseClass {
 			Assert.assertTrue(webDriverWait(10, l.getLoginToAccount()).isDisplayed());
 
 		}
+		
+		
+		
 
 	}
 
@@ -55,12 +58,9 @@ public class DataDriven extends BaseClass {
 
 	@When("Enter {string} detail")
 	public void enter_detail(String string) throws IOException {
-	  
-		
-		
+	  	
    if(string.equals("registration")) {
 
-		
 		String[][] data = Utility.readExcel();
 		
 		for(int i=0; i<data.length;i++) {

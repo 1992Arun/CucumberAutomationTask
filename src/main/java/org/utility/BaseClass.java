@@ -51,6 +51,8 @@ public class BaseClass {
 	public static ProductDetails product;
 	
 	public static ContactUsPOM c;
+	
+	public static List<String> recit;
 
 
 
@@ -392,11 +394,19 @@ public class BaseClass {
 
 	}
 
-	public static void scroll(WebElement e ) {
+	public static void scrollUp(WebElement e ) {
 
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		
 		js.executeScript("arguments[0].scrollIntoView(true)", e);
+
+	}
+	
+	public static void scrollDown(WebElement e ) {
+
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		js.executeScript("arguments[0].scrollIntoView(false)", e);
 
 	}
 	
@@ -409,6 +419,8 @@ public class BaseClass {
 		
 		
 	}
+	
+	
 
 
 }

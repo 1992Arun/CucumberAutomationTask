@@ -90,7 +90,7 @@ When Click 'Registe/Login' button
 And Enter Registration details
 
 |Name|Gender| Email| Password| Date|Month|Year|First name|Last name|Company|Address|Address2|Country|State|City|Zipcode|Mobile Number|
-|Arun|Male|arun3@mail.com|pass123|23|June|1990|Arun|Sharma|TechCorp|123 Street| Apt 4|India|Delhi|New Delhi|110001|9876543210|
+|Arun|Male|arun10@mail.com|pass123|23|June|1990|Arun|Sharma|TechCorp|123 Street| Apt 4|India|Delhi|New Delhi|110001|9876543210|
 
 And Verify "ACCOUNT CREATED!" is visible
 
@@ -125,8 +125,54 @@ Then Verify "ACCOUNT DELETED!" is visible
 And Click on 'Continue' button
 
 
+@logincheckout @sanity
+Scenario: Verify End to End functionlity
 
-@remove
+When Add products to cart
+
+And Click 'Cart' button
+
+Then Verify 'Cart page' is visible
+
+When  Click 'Proceed To Checkout' button
+
+When Click 'Registe/Login' button
+
+When Enter "correct email address and password" for login
+
+|arun3@mail.com|
+|pass123|
+
+And Click on 'login' button
+
+Then Verify 'Logged in as username' at top
+
+When Click 'Cart' button
+
+And  Click 'Proceed To Checkout' button
+
+Then Verify Address Details and Review Your Order
+
+And Enter description in comment text area and 
+
+When Click 'Place Order' button
+
+And Enter payment details: Name on Card, Card Number, CVC, Expiration date
+
+And  Click 'Pay and Confirm Order' button and Verify success message 'Your order has been placed successfully!' is visible
+
+When Verify "Order Placed!" is visible
+
+And Click 'Download Invoice' button
+
+And Click 'Continue' button
+
+
+
+
+
+
+@remove @smoke
 Scenario: Remove Products From Cart
 
 When Add products to cart
@@ -248,5 +294,168 @@ And Click 'Kids' button
 And Click 'KidsShirts' button
 
 Then Verify 'Kids - Tops & Shirts Products' is visible
+
+
+
+@Catogoty @Brands @POLO
+
+Scenario: Verify POLO Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'POLO' button
+
+Then Verify 'Brand - Polo Products' is visible
+
+
+
+@Catogoty @Brands @H&M
+
+Scenario: Verify H&M Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'H&M' button
+
+Then Verify 'Brand - H&M Products' is visible
+
+
+
+@Catogoty @Brands @Madame
+
+Scenario: Verify MADAME Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'MADAME' button
+
+Then Verify 'Brand - Madame Products' is visible
+
+
+
+@Catogoty @Brands @MastHarbour
+
+Scenario: Verify Mast & Harbour Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Mast & Harbour' button
+
+Then Verify 'Brand - Mast & Harbour Products' is visible
+
+
+@Catogoty @Brands @BabyHug
+
+Scenario: Verify BabyHug Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'BabyHug' button
+
+Then Verify 'Brand - Babyhug Products' is visible
+
+
+@Catogoty @Brands @AllenSolly
+
+Scenario: Verify AllenSolly Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'AllenSolly' button
+
+Then Verify 'Brand - Allen Solly Junior Products' is visible
+
+
+
+@Catogoty @Brands @KookieKids
+
+Scenario: Verify KookieKids Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'KookieKids' button
+
+Then Verify 'Brand - Kookie Kids Products' is visible
+
+
+@Catogoty @Brands @Biba
+
+Scenario: Verify Biba Catogory
+
+And Click 'Products' button
+
+Then Verify user is navigated to ALL PRODUCTS page successfully
+
+And Click 'Biba' button
+
+Then Verify 'Brand - Biba Products' is visible
+
+
+@Review @smoke
+Scenario: Verify writring Review functionality
+
+When Click 'View Product' for any product on home page
+
+Then Verify product detail is opened 
+
+When Enter "Name" 
+
+When Enter "emailAddress" 
+
+And Enter "review"
+
+And Click "SubmitReview" button
+
+Then Verify "Thank you for your review." is visible
+
+
+
+@ScrollArrowDown
+Scenario: Verify ScrollDown with ARROW key
+
+When Scroll down page to bottom
+
+Then Verify "Subscription" is visible
+
+When  Click on arrow at bottom right side to move upward
+
+Then Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
+
+
+
+
+@AddRecommendedItems @smoke
+Scenario: Verify Add to cart from Recommended items
+
+When Scroll down to recommended items
+
+Then Verify "RECOMMENDED ITEMS" is visible
+
+When Click on 'Add To Cart' on Recommended product
+
+And Click 'Cart' button
+
+Then Verify that product is displayed in cart page
+
+
+
+
+
+
+
 
 

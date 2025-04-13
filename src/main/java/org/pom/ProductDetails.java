@@ -29,6 +29,51 @@ public class ProductDetails extends BaseClass {
 	public WebElement CartproductQuanity;
 	
 	
+	@FindBy(xpath="//form[@id='review-form']//following::input[@id='name']")
+	public WebElement reviewName;
+	
+	@FindBy(xpath="//form[@id='review-form']//following::input[@id='email']")
+	public WebElement reviewEmail;
+	
+	
+	@FindBy(xpath="//form[@id='review-form']//following::textarea[@name='review']")
+	public WebElement reviewText;
+	
+	@FindBy(xpath="//form[@id='review-form']//following::button[@id='button-review']")
+	public WebElement reviewSubmit;
+	
+	
+	@FindBy(xpath="//form[@id='review-form']//following::span[text()='Thank you for your review.']")
+	public WebElement reviewSuccessMessage;
+	
+	
+	public WebElement getReviewSuccessMessage() {
+		return reviewSuccessMessage;
+	}
+
+	public WebElement getReviewName() {
+		return reviewName;
+	}
+
+
+	public WebElement getReviewEmail() {
+		return reviewEmail;
+	}
+
+
+
+	public WebElement getReviewText() {
+		return reviewText;
+	}
+
+
+
+	public WebElement getReviewSubmit() {
+		return reviewSubmit;
+	}
+
+
+
 	public WebElement getCartproductQuanity() {
 		return CartproductQuanity;
 	}

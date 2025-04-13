@@ -1,9 +1,10 @@
 package org.step;
-
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.utility.BaseClass;
 
 import io.cucumber.java.en.Given;
@@ -64,8 +65,8 @@ public class ContactUs extends BaseClass {
 			click(l.getProductsButton());
 
 		} else if (string.equals("Cart")) {
-
-			click(l.getCartButton());
+			
+			click(webDriverWait(10, l.getCartButton()));
 
 		} else if (string.equals("Add to cart")) {
 
@@ -118,89 +119,145 @@ public class ContactUs extends BaseClass {
 
 			click(webDriverWait(10, p.getCategoryWomenTops()));
 		}
-		
-		
+
+
 		else if (string.equals("WomenDress")) {
 
 			click(webDriverWait(10, p.getCategoryWomenDress()));
 		}
 
-		
+
 		else if (string.equals("WomenSaree")) {
 
 			click(webDriverWait(10, p.getCategoryWomenSaree()));
 		}
-		
+
 
 		else if (string.equals("Men")) {
 
 			click(webDriverWait(10, p.getCategoryMen()));
 		}
-		
+
 		else if (string.equals("MenTshirts")) {
 
 			click(webDriverWait(10, p.getCategoryMenTshirts()));
 		}
-		
+
 		else if (string.equals("MenJeans")) {
 
 			click(webDriverWait(10, p.getCategoryMenJeans()));
 		}
-		
+
 		else if (string.equals("Kids")) {
 
 			click(webDriverWait(10, p.getCategoryKids()));
 		}
-		
+
 		else if (string.equals("KidsDress")) {
 
 			click(webDriverWait(10, p.getCategoryKidsDress()));
 		}
-		
+
 		else if (string.equals("KidsShirts")) {
 
 			click(webDriverWait(10, p.getCategoryKidsShirts()));
 		}
-		
+
 		else if (string.equals("MenJeans")) {
 
 			click(webDriverWait(10, p.getCategoryMenJeans()));
 		}
-		
+
 		else if (string.equals("Kids")) {
 
 			click(webDriverWait(10, p.getCategoryKids()));
 		}
-		
+
 		else if (string.equals("KidsShirts")) {
 
 			click(webDriverWait(10, p.getCategoryKidsShirts()));
 		}
-		
+
 		else if (string.equals("KidsDress")) {
 
 			click(webDriverWait(10, p.getCategoryKidsDress()));
 		}
+
+		else if (string.equals("POLO")) {
+
+			click(webDriverWait(10, p.getCategoryPOLO()));
+		}
+
+		else if (string.equals("H&M")) {
+
+			click(webDriverWait(10, p.getCategoryH_M()));
+		}
+
+		else if (string.equals("MADAME")) {
+
+			click(webDriverWait(10, p.getCategoryMadame()));
+		}
+
+		else if (string.equals("Mast & Harbour")) {
+
+			click(webDriverWait(10, p.getCategoryMastandHarbour()));
+		}
+
+		else if (string.equals("BabyHug")) {
+
+			click(webDriverWait(10, p.getCategoryBabyhug()));
+		}
+
+		else if (string.equals("AllenSolly")) {
+
+			click(webDriverWait(10, p.getCategoryAllenSollyJunior()));
+		}
+
+		else if (string.equals("KookieKids")) {
+
+			click(webDriverWait(10, p.getCategoryKookieKids()));
+		}
+
+		else if (string.equals("Biba")) {
+
+			click(webDriverWait(10, p.getCategoryBiba()));
+		}
+
+		else if (string.equals("SubmitReview")) {
+
+			click(webDriverWait(10, product.getReviewSubmit()));
+		}
+
+		else if (string.equals("DownArrow")) {
+
+			List<WebElement> loginpage = l.getLoginPageButton();
+				
+			for(WebElement x: loginpage ) {
+				
+				if(!x.getAttribute("type").equals("submit")) {
+					
+					Actions a = new Actions(driver);
+
+					a.sendKeys(Keys.ARROW_DOWN).perform();
+
+					
+				}
+				
+			}
+			
+
+				
+				
+		
+
+		}
+
+
+
+
 
 	}
 
-	// @When("Enter name, email, subject and message details")
-	// public void
-	// enter_name_email_subject_and_message_details(io.cucumber.datatable.DataTable
-	// dataTable) {
-	//
-	// List<Map<String, String>> asMaps = dataTable.asMaps();
-	//
-	// sendKeys(c.getName(), asMaps.get(0).get("name"));
-	//
-	// sendKeys(c.getEmail(), asMaps.get(0).get("email"));
-	//
-	// sendKeys(c.getSubject(), asMaps.get(0).get("subject"));
-	//
-	// sendKeys(c.getMessage(), asMaps.get(0).get("message"));
-	//
-	//
-	// }
 
 	@When("Enter {string}, {string}, {string} and {string} details")
 	public void enter_and_details(String string, String string2, String string3, String string4) {
@@ -285,7 +342,7 @@ public class ContactUs extends BaseClass {
 	@When("Scroll down to footer")
 	public void scroll_down_to_footer() {
 
-		scroll(l.getSubscriptionText());
+		scrollDown(l.getSubscriptionText());
 
 	}
 
