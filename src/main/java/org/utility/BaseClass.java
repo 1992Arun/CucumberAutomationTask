@@ -53,6 +53,10 @@ public class BaseClass {
 	public static ContactUsPOM c;
 	
 	public static List<String> recit;
+	
+	public static List<String> productName ;
+	
+	public static List<String> productPrice;
 
 
 
@@ -62,7 +66,7 @@ public class BaseClass {
 
 		ChromeOptions op = new ChromeOptions();
 
-		//	op.addArguments("--headless");
+			op.addArguments("--headless");
 
 		switch( browser) {
 

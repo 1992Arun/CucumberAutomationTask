@@ -1,6 +1,5 @@
 package org.step;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,11 +16,6 @@ public class E2E extends BaseClass {
 	
 
 	public static List<Map<String, String>> asMaps;
-
-	public static List<String> productName = new LinkedList();
-
-	public static List<String> productPrice = new LinkedList();
-	
 
 	public static int numberOfProducts;
 
@@ -189,19 +183,26 @@ public class E2E extends BaseClass {
 		Assert.assertTrue((Utility.getProperty("City")).contains(split[0]));
 
 		Assert.assertTrue(split[3].equals(Utility.getProperty("Zipcode")));
+		
 
 		for (int i = 0; i < productName.size(); i++) {
+			
+			 List<WebElement> cartProductElements = checkout.getCartProductName(); // refetch each time
 
-			String cartProduct = getText(checkout.getCartProductName().get(i)).replaceAll("\\s+", " ").trim();
+	         String cartProduct = getText(webDriverWait(5,cartProductElements.get(i))).replaceAll("\\s+", " ").trim();
+
 			String expectedProduct = productName.get(i).replaceAll("\\s+", " ").trim();
 
 			Assert.assertEquals(cartProduct, expectedProduct);
+			
 
 		}
 
 		for (int i = 0; i < productPrice.size(); i++) {
-
-			String[] split2 = getText(checkout.getCartProductPrice().get(i)).split(" ");
+			
+			 List<WebElement> cartProductPrice= checkout.getCartProductPrice(); 
+			
+			String[] split2 = getText(webDriverWait(5,cartProductPrice.get(i))).split(" ");
 
 			Assert.assertTrue(productPrice.get(i).equals(split2[1]));
 
@@ -374,10 +375,7 @@ public class E2E extends BaseClass {
 		
 		for( int i=0; i<productsNameInCart.size();i++ ) {
 			
-			System.out.println("actutal: "+getText(productsNameInCart.get(i))); 
-			
-			System.out.println("expected: "+ recit.get(i));
-			
+
 			if (getText(productsNameInCart.get(i)).contains(recit.get(i))) {
 			
 		        Assert.assertTrue(getText(productsNameInCart.get(i)).contains(recit.get(i)));

@@ -74,7 +74,7 @@ Then Verify that product is displayed in cart page with exact quantity
 
 
 
-@registercheckout @sanity
+@registercheckout @Retest
 Scenario: Verify End to End functionlity
 
 When Add products to cart
@@ -125,8 +125,8 @@ Then Verify "ACCOUNT DELETED!" is visible
 And Click on 'Continue' button
 
 
-@logincheckout @sanity
-Scenario: Verify End to End functionlity
+@logincheckout @Retest
+Scenario: Verify End to End functionlity with login
 
 When Add products to cart
 

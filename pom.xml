@@ -17,7 +17,7 @@
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-junit</artifactId>
     <version>4.8.0</version>
-    <scope>test</scope>
+ 
 </dependency>
 
 <dependency>
@@ -33,8 +33,6 @@
 </dependency>
 
 
-  
-  
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>

@@ -40,6 +40,9 @@ public class HooksClass extends BaseClass {
 		
 		recit = new LinkedList();
 
+		productName = new LinkedList();
+		
+		productPrice = new LinkedList();
 	}
 
 	@After
