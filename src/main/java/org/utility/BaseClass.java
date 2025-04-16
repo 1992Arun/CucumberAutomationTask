@@ -66,7 +66,7 @@ public class BaseClass {
 
 		ChromeOptions op = new ChromeOptions();
 
-			op.addArguments("--headless");
+		//	op.addArguments("--headless");
 
 		switch( browser) {
 
